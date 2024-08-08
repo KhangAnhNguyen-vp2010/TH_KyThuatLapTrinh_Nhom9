@@ -85,6 +85,38 @@ void LietKe_SoLanXuatHien(int a[], int n)
 	}
 }
 
+void swap(int &a, int &b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+void LeDau_ChanCuoi(int a[], int n)
+{
+	int left=0;
+	int right=n-1;
+	while (left<right)
+	{
+		while (a[left]%2!=0 && left<right)
+		{
+			left++;
+		}
+
+		while (a[right]%2==0 && left<right)
+		{
+			right--;
+		}
+
+		if (left < right)
+		{
+			swap(a[left],a[right]);
+			left++;
+			right--;
+		}
+	}
+}
+
 
 int main()
 {
@@ -103,6 +135,10 @@ int main()
 	xuat_Mang(b,8);
 	printf("\n");
 	LietKe_SoLanXuatHien(b,8);
+	printf("\n-------------------------------\n");
+	printf("\nLE DAU MANG - CHAN CUOI MANG\n");
+	LeDau_ChanCuoi(a,n);
+	xuat_Mang(a,n);
 	getch();
 	return 0;
 }

@@ -149,6 +149,15 @@ void xoa_PT(HonSo a[], int &n, int vitri)
 	n--;
 }
 
+void them_PT(HonSo a[], int &n, HonSo k, int vitri)
+{
+	for (int i = n; i > vitri; i--)
+	{
+		a[i]=a[i-1];
+	}
+	a[vitri]=k;
+	n++;
+}
 
 int main()
 {
@@ -184,6 +193,26 @@ int main()
 	printf("Nhap vi tri:");
 	scanf("%d", &vitri);
 	xoa_PT(a,n,vitri-1);
+	xuat_HonSo(a,n);
+	printf("\n----------------------------------\n");
+	printf("\nTHEM PHAN TU\n");
+	int vitri2;
+	HonSo k;
+	printf("Nhap vi tri:");
+	scanf("%d", &vitri2);
+	printf("Nhap Hon So:\n");
+	printf("Nhap phan nguyen:");
+	scanf("%d", &k.phanNguyen);
+	printf("Nhap phan tu so:");
+	scanf("%d", &k.tuSo);
+	printf("Nhap phan mau so:");
+	scanf("%d", &k.mauSo);
+	while (k.mauSo==0)
+	{
+		printf("Mau so phai > 0, Nhap lai:");
+		scanf("%d", &k.mauSo);
+	}
+	them_PT(a,n,k,vitri2-1);
 	xuat_HonSo(a,n);
 
 	getch();

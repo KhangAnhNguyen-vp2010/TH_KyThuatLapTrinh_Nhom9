@@ -181,6 +181,20 @@ void xuat_PhanSo(PhanSo c[], int n)
 	}
 }
 
+float giaTri_HonSo(HonSo a)
+{
+	return (float)(a.phanNguyen*a.mauSo + a.tuSo)/a.mauSo;
+}
+
+float sum_HonSo(HonSo a[], int n)
+{
+	float tong=0;
+	for (int i = 0; i < n; i++)
+	{
+		tong+=giaTri_HonSo(a[i]);
+	}
+	return tong;
+}
 
 
 int main()
@@ -243,6 +257,8 @@ int main()
 	PhanSo c[MAXSIZE];
 	chuyen_HonSo_ThanhPhanSo(a,n,c);
 	xuat_PhanSo(c,n);
+	printf("\n----------------------------------\n");
+	printf("Tong cac phan tu cua mang la: %.2f\n", sum_HonSo(a,n));
 
 	getch();
 	return 0;

@@ -245,6 +245,46 @@ void xuatVT_PhanNguyenChan(HonSo a[], int n)
 	}
 }
 
+void xuat_ViTri_Max(HonSo a[], int n)
+{
+	float max=0;
+	for (int i = 0; i < n; i++)
+	{
+		if (giaTri_HonSo(a[i])>=max)
+		{
+			max=giaTri_HonSo(a[i]);
+		}
+	}
+
+	for (int j = 0; j < n; j++)
+	{
+		if (giaTri_HonSo(a[j])==max)
+		{
+			printf("Vi tri Max: %d\n", j+1);
+		}
+	}
+}
+
+void xuat_ViTri_Min(HonSo a[], int n)
+{
+	float min=giaTri_HonSo(a[0]);
+	for (int i = 0; i < n; i++)
+	{
+		if (giaTri_HonSo(a[i])<=min)
+		{
+			min=giaTri_HonSo(a[i]);
+		}
+	}
+
+	for (int j = 0; j < n; j++)
+	{
+		if (giaTri_HonSo(a[j])==min)
+		{
+			printf("Vi tri Max: %d\n", j+1);
+		}
+	}
+}
+
 
 int main()
 {
@@ -316,6 +356,11 @@ int main()
 	printf("\n----------------------------------\n");
 	printf("Cac vi tri phan tu co phan nguyen chan la:\n");
 	xuatVT_PhanNguyenChan(a,n);
+	printf("\n----------------------------------\n");
+	printf("XUAT VI TRI PHAN TU MAX\n");
+	xuat_ViTri_Max(a,n);
+	printf("XUAT VI TRI PHAN TU MIN\n");
+	xuat_ViTri_Min(a,n);
 	getch();
 	return 0;
 }

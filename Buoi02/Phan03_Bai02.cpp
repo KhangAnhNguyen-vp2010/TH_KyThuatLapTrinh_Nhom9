@@ -140,6 +140,15 @@ int tim_Kiem_BinarySearch(HonSo a[], int n, HonSo x)
 	return -1;
 }
 
+void xoa_PT(HonSo a[], int &n, int vitri)
+{
+	for (int i = vitri; i < n; i++)
+	{
+		a[i]=a[i+1];
+	}
+	n--;
+}
+
 
 int main()
 {
@@ -169,6 +178,13 @@ int main()
 		printf("=>>Da tim thay!!!");
 	}
 	else printf("=>>Khong tim thay!!!");
+	printf("\n----------------------------------\n");
+	printf("\nXOA PHAN TU\n");
+	int vitri;
+	printf("Nhap vi tri:");
+	scanf("%d", &vitri);
+	xoa_PT(a,n,vitri-1);
+	xuat_HonSo(a,n);
 
 	getch();
 	return 0;

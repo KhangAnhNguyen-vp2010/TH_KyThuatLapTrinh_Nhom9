@@ -104,6 +104,42 @@ void SapXep(HonSo a[], int n)
 	}
 }
 
+void Interchange_Sort(HonSo a[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (SoSanh_HonSo(a[i],a[j])==1)
+			{
+				swap(a[i], a[j]);
+			}
+		}
+	}
+}
+
+int tim_Kiem_BinarySearch(HonSo a[], int n, HonSo x)
+{
+	int left = 0, right = n - 1, middle;
+	while (left <= right)
+	{
+		middle = (left + right) / 2;
+		if (SoSanh_HonSo(a[middle],x)==0)
+		{
+			return middle;
+		}
+		else if (SoSanh_HonSo(a[middle],x)==1)
+		{
+			right = middle - 1;
+		}
+		else if (SoSanh_HonSo(a[middle],x)==-1)
+		{
+			left = middle + 1;
+		}
+	}
+	return -1;
+}
+
 
 int main()
 {
@@ -123,6 +159,16 @@ int main()
 	printf("PHAN NGUYEN CHAN DAU MANG - PHAN NGUYEN LE CUOI MANG\n");
 	SapXep(a,n);
 	xuat_HonSo(a,n);
+	printf("\n----------------------------------\n");
+	printf("Ta co hon so: %d va %d/%d\n", a[3].phanNguyen, a[3].tuSo, a[3].mauSo);
+	printf("Tim kiem hon so tren trong mang\n");
+	Interchange_Sort(a,n);
+	xuat_HonSo(a,n);
+	if (tim_Kiem_BinarySearch(a,n,a[3])!=-1)
+	{
+		printf("=>>Da tim thay!!!");
+	}
+	else printf("=>>Khong tim thay!!!");
 
 	getch();
 	return 0;

@@ -196,6 +196,44 @@ float sum_HonSo(HonSo a[], int n)
 	return tong;
 }
 
+void tim_Max(HonSo a[], int n)
+{
+	float max=0;
+	for (int i = 0; i < n; i++)
+	{
+		if (giaTri_HonSo(a[i])>=max)
+		{
+			max=giaTri_HonSo(a[i]);
+		}
+	}
+	for (int j = 0; j < n; j++)
+	{
+		if (giaTri_HonSo(a[j])==max)
+		{
+			printf("Phan tu lon nhat la: %d va %d/%d\n", a[j].phanNguyen, a[j].tuSo, a[j].mauSo);
+		}
+	}
+}
+
+void tim_Min(HonSo a[], int n)
+{
+	float min=giaTri_HonSo(a[0]);
+	for (int i = 0; i < n; i++)
+	{
+		if (giaTri_HonSo(a[i])<=min)
+		{
+			min=giaTri_HonSo(a[i]);
+		}
+	}
+	for (int j = 0; j < n; j++)
+	{
+		if (giaTri_HonSo(a[j])==min)
+		{
+			printf("Phan tu nho nhat la: %d va %d/%d\n", a[j].phanNguyen, a[j].tuSo, a[j].mauSo);
+		}
+	}
+}
+
 
 int main()
 {
@@ -259,7 +297,11 @@ int main()
 	xuat_PhanSo(c,n);
 	printf("\n----------------------------------\n");
 	printf("Tong cac phan tu cua mang la: %.2f\n", sum_HonSo(a,n));
-
+	printf("\n----------------------------------\n");
+	printf("PHAN TU MAX\n");
+	tim_Max(a,n);
+	printf("PHAN TU MIN\n");
+	tim_Min(a,n);
 	getch();
 	return 0;
 }

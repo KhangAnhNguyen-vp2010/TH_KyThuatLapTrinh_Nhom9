@@ -79,6 +79,32 @@ int tim_Kiem_LinearSearch(HonSo a[], int n, HonSo x)
 	return -1;
 }
 
+void SapXep(HonSo a[], int n)
+{
+	int left=0;
+	int right=n-1;
+	while (left<right)
+	{
+		while (a[left].phanNguyen%2==0 && left<right)
+		{
+			left++;
+		}
+
+		while (a[right].phanNguyen%2!=0 && left<right)
+		{
+			right--;
+		}
+
+		if (left < right)
+		{
+			swap(a[left],a[right]);
+			left++;
+			right--;
+		}
+	}
+}
+
+
 int main()
 {
 	HonSo a[MAXSIZE];
@@ -93,6 +119,10 @@ int main()
 		printf("=>>Da tim thay!!!");
 	}
 	else printf("=>>Khong tim thay!!!");
+	printf("\n----------------------------------\n");
+	printf("PHAN NGUYEN CHAN DAU MANG - PHAN NGUYEN LE CUOI MANG\n");
+	SapXep(a,n);
+	xuat_HonSo(a,n);
 
 	getch();
 	return 0;

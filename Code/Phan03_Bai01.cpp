@@ -67,6 +67,24 @@ int tong_PT_Le(int a[], int n)
 	return tong;
 }
 
+void LietKe_SoLanXuatHien(int a[], int n)
+{
+	const int max = MAXSIZE;
+	int dem[max]={0};
+	for (int i = 0; i < n; i++)
+	{
+		int b=a[i];
+		dem[b]++;
+	}
+	for (int b = 0; b < max; b++)
+	{
+		if (dem[b]>0)
+		{
+			printf("So lan xuat hien cua phan tu %d : %d\n", b, dem[b]);
+		}
+	}
+}
+
 
 int main()
 {
@@ -79,7 +97,12 @@ int main()
 	xuat_Mang(a,n);
 	printf("\n-------------------------------\n");
 	printf("Tong cac phan tu le la:%d", tong_PT_Le(a,n));
-
+	printf("\n-------------------------------\n");
+	int b[MAXSIZE]={1,2,3,4,5,2,3,3};
+	printf("Ta co mot mang B:\n");
+	xuat_Mang(b,8);
+	printf("\n");
+	LietKe_SoLanXuatHien(b,8);
 	getch();
 	return 0;
 }

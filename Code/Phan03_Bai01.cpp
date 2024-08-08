@@ -54,6 +54,20 @@ void xuat_Mang(int a[], int n)
 	}
 }
 
+int tong_PT_Le(int a[], int n)
+{
+	int tong=0;
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i]%2!=0)
+		{
+			tong+=a[i];
+		}
+	}
+	return tong;
+}
+
+
 int main()
 {
 	int a[MAXSIZE];
@@ -63,6 +77,8 @@ int main()
 	scanf("%d", &input);
 	tao_Mang(a,n,input);
 	xuat_Mang(a,n);
+	printf("\n-------------------------------\n");
+	printf("Tong cac phan tu le la:%d", tong_PT_Le(a,n));
 
 	getch();
 	return 0;

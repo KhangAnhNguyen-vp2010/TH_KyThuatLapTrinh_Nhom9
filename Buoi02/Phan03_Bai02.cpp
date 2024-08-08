@@ -234,6 +234,17 @@ void tim_Min(HonSo a[], int n)
 	}
 }
 
+void xuatVT_PhanNguyenChan(HonSo a[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i].phanNguyen%2==0)
+		{
+			printf("Vi tri %d\n", i+1);
+		}
+	}
+}
+
 
 int main()
 {
@@ -302,6 +313,9 @@ int main()
 	tim_Max(a,n);
 	printf("PHAN TU MIN\n");
 	tim_Min(a,n);
+	printf("\n----------------------------------\n");
+	printf("Cac vi tri phan tu co phan nguyen chan la:\n");
+	xuatVT_PhanNguyenChan(a,n);
 	getch();
 	return 0;
 }

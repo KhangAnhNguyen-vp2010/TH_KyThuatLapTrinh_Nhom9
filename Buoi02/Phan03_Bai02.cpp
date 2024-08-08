@@ -159,6 +159,30 @@ void them_PT(HonSo a[], int &n, HonSo k, int vitri)
 	n++;
 }
 
+struct PhanSo
+{
+	int tu, mau;
+};
+
+void chuyen_HonSo_ThanhPhanSo(HonSo a[], int n, PhanSo c[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		c[i].tu=a[i].phanNguyen*a[i].mauSo + a[i].tuSo;
+		c[i].mau=a[i].mauSo;
+	}
+}
+
+void xuat_PhanSo(PhanSo c[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		printf("Phan so thu %d: %d/%d\n", i+1, c[i].tu, c[i].mau);
+	}
+}
+
+
+
 int main()
 {
 	HonSo a[MAXSIZE];
@@ -214,6 +238,11 @@ int main()
 	}
 	them_PT(a,n,k,vitri2-1);
 	xuat_HonSo(a,n);
+	printf("\n----------------------------------\n");
+	printf("TAO MANG PHAN SO c CHUA PHAN TU HON SO CUA MANG a\n");
+	PhanSo c[MAXSIZE];
+	chuyen_HonSo_ThanhPhanSo(a,n,c);
+	xuat_PhanSo(c,n);
 
 	getch();
 	return 0;

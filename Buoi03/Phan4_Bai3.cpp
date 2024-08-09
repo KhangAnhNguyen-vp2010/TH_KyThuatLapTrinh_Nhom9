@@ -41,10 +41,25 @@ void XuatCotLe(int a[][100], int n, int m) {
 		}
 	}
 }
+void TimMaxTrenBien(int a[][100], int n, int m) {
+	int max = a[0][0];
+	for (int i = 0; i < m; i++)
+	{
+		if (a[0][i] > max) max = a[0][i];
+		if (a[n - 1][i] > max) max = a[n - 1][i];
+	}
+	for (int i = 1; i < n-1; i++)
+	{
+		if (a[i][0] > max) max = a[i][0];
+		if (a[i][m - 1] > max) max = a[i][m - 1];
+	}
+	printf("\nMax tren bien la:%d", max);
+}
 int main() {
 	int a[100][100];
 	int n, m;
 	TaoM2C(a, n, m);
 	XuatM2C(a, n, m);
 	XuatCotLe(a, n, m);
+	TimMaxTrenBien(a, n, m);
 }

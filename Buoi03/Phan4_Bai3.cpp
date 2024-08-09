@@ -55,6 +55,24 @@ void TimMaxTrenBien(int a[][100], int n, int m) {
 	}
 	printf("\nMax tren bien la:%d", max);
 }
+int KT(int x) {
+	while (x>0)
+	{
+		int n = x % 10;
+		if (n == 2) return 1;
+		x /= 10;
+	}
+	return 0;
+}
+void XuatM2CS(int a[][100], int n, int m) {
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++) {
+			if(KT(a[i][j]))
+			printf("%d\t", a[i][j]);
+		}
+	}
+}
 int main() {
 	int a[100][100];
 	int n, m;
@@ -62,4 +80,6 @@ int main() {
 	XuatM2C(a, n, m);
 	XuatCotLe(a, n, m);
 	TimMaxTrenBien(a, n, m);
+	printf("\n");
+	XuatM2CS(a, n, m);
 }

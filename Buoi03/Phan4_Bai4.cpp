@@ -73,6 +73,27 @@ void SapXepMT(int a[][100], int n) {
 		if (i % 2 == 0) SapXepDongGiam(a[i], n); else SapXepDongTang(a[i], n);
 	}
 }
+void SapXepCot(int a[][100], int n, int col, int x) {
+	for (int i = 0; i < n-1; i++)
+	{
+		for (int j = i + 1; j < n; j++) {
+			if ((x && a[i][col] > a[j][col]) || (!x && a[i][col] < a[j][col])) {
+				int temp = a[i][col];
+				a[i][col] = a[j][col];
+				a[j][col] = temp;
+			}
+		}
+	}
+}
+void SapXepCotMT(int a[][100], int n) {
+	for (int i = 0; i < n; i++)
+	{
+		if (i % 2 == 0) {
+			SapXepCot(a, n, i, 1);
+		}
+		else SapXepCot(a, n, i, 0);
+	}
+}
 int main() {
 	int a[100][100], n;
 	TaoMaTranVuong(a, n);
@@ -82,5 +103,8 @@ int main() {
 	XuatMTVuong(a, n);
 	printf("\nMa tran da sap xep dong le tang dong chan giam\n");
 	SapXepMT(a, n);
+	XuatMTVuong(a, n);
+	printf("\nMa tran da sap xep dong cot le giam cot chan tang\n");
+	SapXepCotMT(a, n);
 	XuatMTVuong(a, n);
 }
